@@ -42,6 +42,7 @@ def form_view(request):
         mlp = load('main/models/mpl_nureal_network.joblib')
         knn = load('main/models/knn.joblib')
         forest = load('main/models/RandomForestClassifier.joblib')
+        svc = load('main/models/svc.joblib')
 
         scaler = load('main/models/scaler.joblib')
         ct_gender = load('main/models/gender_ct.joblib')
@@ -54,7 +55,8 @@ def form_view(request):
 
         final = scaler.transform(final)
 
-
+        svc_pred = svc.predict_proba(final)
+        svc_pred = svc_pred[:, 1]
         mlp_pred = mlp.predict_proba(final)
         mlp_pred = mlp_pred[:, 1]
         knn_pred = knn.predict_proba(final)
@@ -62,8 +64,8 @@ def form_view(request):
         forest_pred = forest.predict_proba(final)
         forest_pred = forest_pred[:, 1]
 
-        value = mlp_pred[0] + knn_pred[0] + forest_pred[0]
-        value = value / 3
+        value = mlp_pred[0] + knn_pred[0] + forest_pred[0] + svc_pred[0]
+        value = value / 4
         
         final = round(value, 3)
         if final == 1.0:
