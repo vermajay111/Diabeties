@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diabetes Prediction Results</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css" integrity="sha512-5CVZ2z8ZgU0S6abgzN6udHbd6aLk6meJ/4c4I9ktqW68Bo8G1KjTklwr0T3TqWcOvyjK7g55h/fDEhdH7sWjgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom CSS -->
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .card {
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .card-header {
+        border-radius: 10px 10px 0 0;
+      }
+      
+      .card-footer {
+        border-radius: 0 0 10px 10px;
+      }
+      
+      .btn-outline-primary {
+        color: #007bff;
+        border-color: #007bff;
+      }
+      
+      .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card border-primary">
+            <div class="card-header bg-primary text-white text-center">
+              <h3>Diabetes Prediction Results</h3>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">The likelihood of you having diabetes or delvoping them in the future is:</h5>
+              <p class="card-text text-center display-4">{{ prediction }}%</p>
+            </div>
+            <div class="card-footer text-center">
+              <a href="{% url 'form_view' %}" class="btn btn-outline-primary">Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4 text-center">
+        <p>*Note that the results may not be 100% accurate. This is a machine learning model which uses ensemble architecture with neural network, KNN, and Random Forest classifier. There are more factors to 
+            consider such as genetics, past familiy history, diet, physical activity, and a lot more. 0.0% represents 0 chance of diabetes
+        </p>
+      </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-4oKvvrZ8JZk5k5M5ipSrbnBvKsOeaW6lX9JiaI484AiHQnU8LyT1+SgGkiwMfJq" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js" integrity="sha512-DvLlJe7QilgXlJf7xBUNo3qKjBt+Jg1xLzWPMJh4rs+IkxdplKX9dAgZQczhSvxbY+Y5ckKsfFyUU2BzflU6iw==" crossorigin="anonymous" referrerpolicy="no-ref"></script>
+  </body>
+</html>
