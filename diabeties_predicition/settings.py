@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_buzn4bxbz8w-we8*9mump=r&(o6mx!0%nt=0z^&fgdku5@bkr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://vermajay111-vigilant-umbrella-7gwxjvv54vw2x9j5-8000.preview.app.github.dev", '*']
 
 
 # Application definition
@@ -53,6 +53,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'diabeties_predicition.urls'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://vermajay111-vigilant-umbrella-7gwxjvv54vw2x9j5-8000.preview.app.github.dev'
+]
+
+#custom setting
+CSRF_COOKIE_SECURE = True
+
 
 TEMPLATES = [
     {

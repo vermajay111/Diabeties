@@ -4,7 +4,11 @@ from django.core.cache import cache
 from django.views.decorators.cache import cache_page
 
 
-@cache_page(120)
+# I have used bootstrap: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+# An also sklearn: https://scikit-learn.org/stable/index.html
+
+
+@cache_page(1200)
 def form_view(request):
     if request.method == 'POST':
         
@@ -67,9 +71,8 @@ def form_view(request):
         value = mlp_pred[0] + knn_pred[0] + forest_pred[0] + svc_pred[0]
         value = value / 4
         
-        final = round(value, 3)
-        if final == 1.0:
-          final = 100
+        final = round(value, 4)
+        final = final * 100
 
         return render(request, 'results.html', {'prediction': final})
     
