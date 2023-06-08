@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Diabetes Prediction Results</title>
     
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS --><script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css" integrity="sha512-5CVZ2z8ZgU0S6abgzN6udHbd6aLk6meJ/4c4I9ktqW68Bo8G1KjTklwr0T3TqWcOvyjK7g55h/fDEhdH7sWjgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -36,6 +38,9 @@
         background-color: #007bff;
         color: #fff;
       }
+      .make_center{
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -48,7 +53,7 @@
             </div>
             <div class="card-body">
               <h5 class="card-title text-center">The likelihood of you having diabetes or delvoping them in the future is:</h5>
-              <p class="card-text text-center display-4">{{ prediction }}%</p>
+              <p class="card-text text-center display-4">{{ prediction.0 }}%</p>
             </div>
             <div class="card-footer text-center">
               <a href="{% url 'form_view' %}" class="btn btn-outline-primary">Back to Home</a>
