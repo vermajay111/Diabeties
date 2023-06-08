@@ -13,7 +13,10 @@ It occurs when the body either does not produce enough insulin or cannot effecti
 Insulin is a hormone produced by the pancreas that helps regulate blood sugar levels and allows glucose to enter the body's 
 cells to be used as energy.
 
+18-24 bmi good
 
+X:[[Female,80.0,0,1,never,25.19,6.6,140],    Y:[0, 1],
+    [Female,80.0,0,1,never,25.19,6.6,140]]   
 """
 
 # I have used bootstrap: https://getbootstrap.com/docs/5.3/getting-started/introduction
@@ -63,7 +66,19 @@ def form_view(request):
     
         except:
             pass
+        
+        precent = 0
 
+        if hba1c > 6:
+            precent += 60
+
+        elif hba1c > 5.7:
+            percent += 40
+        
+        if glucose > 210:
+            percent += 25
+        
+        
 
         input_non_6 = [[gender, age+5, hypertension, heart_disease, smoking, bmi, hba1c, glucose]]
 
@@ -90,7 +105,16 @@ def form_view(request):
         value = value / 4
         value = value * 100
         value = round(value, 2)
-        averages.append(value)
+
+
+        final = value+precent
+
+        if final > 100:
+            final = 99.5
+        
+        averages.append(final)
+
+
 
         print(averages)
         print(ages)
